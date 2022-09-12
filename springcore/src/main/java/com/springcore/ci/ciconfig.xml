@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	
+	<bean class="com.springcore.ci.Certi" name="cer" c:name="Java is popular programming language" />
+	<!-- <bean class="com.springcore.ci.Person" name="person" c:name="Himal" c:personId="123" c:certi-ref="cer" /> -->
+	<!-- <bean class="com.springcore.ci.Person" name="person">
+	<constructor-arg>
+	<list>
+	<value> Rajendra Pant</value>
+	<value>Himal Pant</value>
+	<value>Krishna Pant</value>
+	</list>
+	</constructor-arg>
+	</bean> -->
+	
+	<!-- <bean class="com.springcore.ci.Certi" name="cer">
+		<constructor-arg value="Android using flutter" />
+	</bean> -->
+	
+	<bean class="com.springcore.ci.Person" name="person">
+	
+		<constructor-arg value="Himal" />
+		
+		<constructor-arg value="123" type="int" />
+	<!-- If you even don't specify type ="int", the Ioc will determine it'self 
+		that it is int type data. Here we are working only with one constructor, 
+		so there is no any ambiguity at all if we take more than one constructors 
+		then there will be ambiguity and at that time we have to take type approach.
+ -->		
+		<constructor-arg ref="cer" />
+		<constructor-arg>
+	<list>
+	<value> Rajendra Pant</value>
+	<value>Himal Pant</value>
+	<value>Krishna Pant</value>
+	</list>
+	</constructor-arg>
+
+	</bean>
+	<bean class="com.springcore.ci.Addition" name="add">
+	<constructor-arg value="20" type="int" index="1" />
+	<constructor-arg value="45" type="int" index="0"/>
+	</bean>
+</beans>
